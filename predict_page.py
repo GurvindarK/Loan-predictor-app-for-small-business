@@ -1,15 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pickle
-from datetime import datetime
 import zipfile 
 import os 
-import tempfile
 
-@st.cache_data
+
 def load_model():
     #Upload the zipped pickle file
     with zipfile.ZipFile("saved_steps.zip", "r") as zip_ref:
@@ -17,17 +13,14 @@ def load_model():
 
     # Check if the folder exists
     if os.path.exists("saved_steps"):
-        # Access the folder and load the CSV file into a DataFrame
+        # Access the folder and load the file
         file_path = os.path.join("saved_steps", "saved_steps.pkl")
 
         # Load the pickle file
         with open(file_path, 'rb') as file:
                 data = pickle.load(file)
 
-            # Use the loaded model (example: make a prediction)
-        
-    #with open('saved_steps.pkl', 'rb') as file:
-        #data = pickle.load(file)
+            
     return data
 
 data = load_model()
