@@ -1,5 +1,5 @@
 
-# Small Business loan prediction app
+# Small Business Loan Prediction App
 
 
 The Proposed streamlit app Take some inputs from user and predicts, if the small business loan would get approved or not . 
@@ -18,6 +18,30 @@ The Proposed streamlit app Take some inputs from user and predicts, if the small
 [![Data Source](https://data.sba.gov/dataset/7-a-504-foia)]
 (https://data.sba.gov/)
 
+## Data Preparation
+
+Explored the Data
+
+
+Performed EDA
+
+
+Categories or grouped the data for ease of model deployment.
+
+
+Treated or removed the na values
+
+
+Encoded the data
+
+## Model description
+
+3 classification Models (Logistic regression, Decision tree, Randon Forest) were run with standard scalar and grid cv with 5 fold cross validation.
+Selected the Model with highest accuracy. And saved as the pickle file to import.
+
+
+
+
 ## Data details
 
 [Data details link](https://data.sba.gov/dataset/7-a-504-foia/resource/6898b986-a895-47b4-bb7e-c6b286b23a7b)
@@ -29,44 +53,44 @@ With 828 small businesses, which were divided  into 25 broad categories for ease
 Business types were discussed in 4 categories :: Partnership, Individual, Corporation, Other
 
 
-Field Name	   Definition
+Field Name	        Definition
 
 
-AsOfDate	Date when the data was recorded
+AsOfDate::	Date when the data was recorded
 
-Program	Indicator of whether loan was approved under SBA's 7(a) or 504 loan program
+Program::	Indicator of whether loan was approved under SBA's 7(a) or 504 loan program
 
-BorrName	Borrower name
+BorrName::	Borrower name
 
-BorrStreet	Borrower street address
+BorrStreet::	Borrower street address
 
-BorrCity	Borrower city
-BorrState	Borrower state
-BorrZip	Borrower zip code
-BankName	Name of the bank that the loan is currently assigned to
-BankFDICNumber	The Federal Depository Insurance Corporation certificate ID of the lender
+BorrCity::	Borrower city
+BorrState::	Borrower state
+BorrZip::	Borrower zip code
+BankName::	Name of the bank that the loan is currently assigned to
+BankFDICNumber::	The Federal Depository Insurance Corporation certificate ID of the lender
 
-BankNCUANumber	The National Credit Union Association charter number of the lender
+BankNCUANumber::	The National Credit Union Association charter number of the lender
 
-BankStreet	Bank street address
+BankStreet::	Bank street address
 
-BankCity	Bank city
+BankCity::	Bank city
 
-BankState	Bank state
+BankState::	Bank state
 
-BankZip	Bank zip code
+BankZip::	Bank zip code
 
-GrossApproval	Total loan amount
+GrossApproval::	Total loan amount
 
-SBAGuaranteedApproval	Amount of SBA's loan guaranty
+SBAGuaranteedApproval::	Amount of SBA's loan guaranty
 
-ApprovalDate	Date the loan was approved
+ApprovalDate::	Date the loan was approved
 
-ApprovalFiscalYear	Fiscal year the loan was approved
+ApprovalFiscalYear::	Fiscal year the loan was approved
 
-FirstDisbursementDate	Date of first loan disbursement (if available)
+FirstDisbursementDate::	Date of first loan disbursement (if available)
 
-DeliveryMethod	"Specific delivery method loan was approved under.  See SOP 50 10 5 for definitions and rules for each delivery method.  
+DeliveryMethod::	"Specific delivery method loan was approved under.  See SOP 50 10 5 for definitions and rules for each delivery method.  
 
 7(a) Delivery Methods:
 
@@ -107,39 +131,39 @@ DeliveryMethod	"Specific delivery method loan was approved under.  See SOP 50 10
 
 • Y2K = Y2K Loan (inactive)"
 
-Subprogram	Subprogram description - specific subprogram loan was 
+Subprogram::	Subprogram description - specific subprogram loan was 
 aproved under.  See SOP 50 10 5 for definitions and rules for each subprogram.
 
-InitialInterestRate	Initial interest rate - total interest rate (base rate plus spread) at time loan was approved
+InitialInterestRate::	Initial interest rate - total interest rate (base rate plus spread) at time loan was approved
 
-FixedOrVariableInterestInd	Fixed/variable interest rate indicator
+FixedOrVariableInterestInd::	Fixed/variable interest rate indicator
 
-TermInMonths	Length of loan term
+TermInMonths::	Length of loan term
 
-NaicsCode	North American Industry Classification System (NAICS) 
+NaicsCode::	North American Industry Classification System (NAICS) code
 
 
-code
 
-NaicsDescription	North American Industry Classification System 
+
+NaicsDescription::	North American Industry Classification System 
 (NAICS) description
 
-FranchiseCode	Franchise Code
+FranchiseCode::	Franchise Code
 
-FranchiseName	Franchise Name (if applicable)
+FranchiseName::	Franchise Name (if applicable)
 
-ProjectCounty	County where project occurs
+ProjectCounty::	County where project occurs
 
-ProjectState	State where project occurs
+ProjectState::	State where project occurs
 
-SBADistrictOffice	SBA district office
+SBADistrictOffice::	SBA district office
 
-CongressionalDistrict	Congressional district where project 
+CongressionalDistrict::	Congressional district where project 
 occurs
 
-BusinessType	Borrower Business Type - Individual, Partnership, or Corporation
+BusinessType::	Borrower Business Type - Individual, Partnership, or Corporation
 
-BusinessAge	"SBA began collecting the following business age information in fiscal year 2018:  
+BusinessAge::	"SBA began collecting the following business age information in fiscal year 2018:  
 
 • Change of Ownership
 
@@ -161,19 +185,19 @@ LoanStatus	"Current status of loan:
 
 • EXEMPT = The status of loans that have been disbursed but have not been cancelled, paid in full, or charged off are exempt from disclosure under FOIA Exemption 4"
 
-PaidInFullDate	Date loan was paid in full (if applicable)
+PaidInFullDate::	Date loan was paid in full (if applicable)
 
-ChargeOffDate	Date SBA charged off loan (if applicable)
+ChargeOffDate::	Date SBA charged off loan (if applicable)
 
-GrossChargeOffAmount	Total loan balance charged off (includes 
+GrossChargeOffAmount::	Total loan balance charged off (includes 
 
 guaranteed and non-guaranteed portion of loan)
 
-RevolverStatus	Indicator of whether a loan is a term loan or 
+RevolverStatus::	Indicator of whether a loan is a term loan or 
 
-revolving line of credit (0=Term, 1=Revolver)
+revolving line of credit:: (0=Term, 1=Revolver)
 
-JobsSupported	Total Jobs Created + Jobs Retained as reported by 
+JobsSupported::	Total Jobs Created + Jobs Retained as reported by 
 
 lender on SBA Loan Application.  SBA does not review, audit, or 
 validate these numbers - they are simply self-reported, good faith estimates by the lender.
