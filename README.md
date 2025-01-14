@@ -2,8 +2,8 @@
 # Small Business Loan Prediction App
 
 
-The Proposed streamlit app Take some inputs from user and predicts, if the small business loan would get approved or not . 
-
+The Proposed streamlit app Take some inputs from user predicts whether a small business would qualify for or be approved for a loan. 
+This allows them to change or modify the guaranty type to enhance their chances of qualifying for a loan.
 
 
 ## Authors
